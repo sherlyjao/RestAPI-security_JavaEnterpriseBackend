@@ -21,6 +21,8 @@ import com.spring.spring_rest_security.entity.Auth_User;
 import com.spring.spring_rest_security.repository.AuthRoleRepository;
 import com.spring.spring_rest_security.repository.AuthUserRepository;
 
+import jakarta.validation.Valid;
+
 /**
  * AuthenticationController
  */
@@ -84,7 +86,7 @@ public class AuthenticationController {
 
     @PostMapping ("/register_authorized_user")
     public ResponseEntity<String> register_authUser(
-        @RequestBody AuthUserRegisterDto authUserRegisterDto
+        @Valid @RequestBody AuthUserRegisterDto authUserRegisterDto
     ) {
 
         if (

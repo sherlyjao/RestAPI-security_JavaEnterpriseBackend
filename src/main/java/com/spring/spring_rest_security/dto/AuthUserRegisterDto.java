@@ -1,10 +1,15 @@
 package com.spring.spring_rest_security.dto;
 
+import jakarta.validation.constraints.NotBlank;
+
 public class AuthUserRegisterDto {
     //==========
     // Fields
     //==========
+    @NotBlank (message = "Username can not be blank!")
     private String username;
+
+    @NotBlank (message = "Password must not be blank!")
     private String password;
 
 
