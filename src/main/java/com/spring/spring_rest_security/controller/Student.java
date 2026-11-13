@@ -1,4 +1,4 @@
-package com.spring.spring_rest.controller;
+package com.spring.spring_rest_security.controller;
 
 /**
  * Simple POJO representing a student.

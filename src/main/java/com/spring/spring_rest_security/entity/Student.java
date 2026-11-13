@@ -1,44 +1,40 @@
-package com.spring.spring_rest.dto;
+package com.spring.spring_rest_security.entity;
 
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.Size;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
 /**
- * DTO representing student information transferred between,
- * the client and the REST API, 
- * including field-level input validation constraints.
+ * JPA entity class representing a student record mapped to a database table.
  */
-public class StudentDto {
+@Entity 
+public class Student {
     //==========
     // Fields
     //==========
+    @Id 
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Size (
-        min = 2, 
-        max = 50, 
-        message = "Must be 2 to 50 characters."
-    )
+    @Column (nullable = false)
     private String firstName;
 
-    @Size (
-        min = 2, 
-        max = 50, 
-        message = "Must be 2 to 50 characters."
-    )
+    @Column (nullable = false)
     private String lastName;
 
-    @Email (message = "Email is required and should be valid.")
+    @Column (nullable = false, unique = true)
     private String email;
 
 
     //==========
     // Constructors
     //==========
-    public StudentDto() {
+    public Student() {
     }
 
-    public StudentDto(
+    public Student(
         Long id, 
         String firstName, 
         String lastName, 
@@ -50,7 +46,7 @@ public class StudentDto {
         this.lastName = lastName;
         this.email = email;
     }
-
+    
 
     //==========
     // Setters
@@ -58,7 +54,7 @@ public class StudentDto {
     public void setId(Long id) {
         this.id = id;
     }
-    
+
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
@@ -71,7 +67,7 @@ public class StudentDto {
         this.email = email;
     }
 
- 
+
     //==========
     // Getters
     //==========
@@ -91,16 +87,15 @@ public class StudentDto {
         return email;
     }
 
-    
+
     //==========
     // Methods
     //==========
     @Override
     public String toString() {
-        return 
-            "StudentDto [id=" + id + 
-            ", firstName=" + firstName + 
-            ", lastName=" + lastName + 
-            ", email=" + email + "]";
+        return "Student [id=" + id +
+        ", firstName=" + firstName +
+        ", lastName=" + lastName +
+        ", email=" + email + "]";
     }
 }

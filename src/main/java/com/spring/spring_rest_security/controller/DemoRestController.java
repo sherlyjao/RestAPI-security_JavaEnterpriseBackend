@@ -1,4 +1,4 @@
-package com.spring.spring_rest.controller;
+package com.spring.spring_rest_security.controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
