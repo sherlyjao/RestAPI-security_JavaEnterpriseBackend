@@ -10,9 +10,7 @@ import jakarta.persistence.Id;
  */
 @Entity 
 public class Auth_Role {
-    //==========
-    // Fields
-    //==========
+
     @Id 
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long id;
@@ -20,9 +18,6 @@ public class Auth_Role {
     private String name;
 
 
-    //==========
-    // Constructors
-    //==========
     public Auth_Role() {
     }
 
@@ -32,9 +27,6 @@ public class Auth_Role {
     }
 
 
-    //==========
-    // Setters
-    //==========
     public void setId(Long id) {
         this.id = id;
     }
@@ -44,9 +36,6 @@ public class Auth_Role {
     }
 
 
-    //==========
-    // Getters
-    //==========
     public Long getId() {
         return id;
     }
@@ -55,10 +44,7 @@ public class Auth_Role {
         return name;
     }
 
-    
-    //==========
-    // Methods
-    //==========
+
     @Override
     public String toString() {
         return 

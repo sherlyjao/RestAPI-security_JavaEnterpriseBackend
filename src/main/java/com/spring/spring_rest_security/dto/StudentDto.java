@@ -9,9 +9,7 @@ import jakarta.validation.constraints.Size;
  * including field-level input validation constraints.
  */
 public class StudentDto {
-    //==========
-    // Fields
-    //==========
+
     private Long id;
 
     @Size (
@@ -32,9 +30,6 @@ public class StudentDto {
     private String email;
 
 
-    //==========
-    // Constructors
-    //==========
     public StudentDto() {
     }
 
@@ -52,9 +47,6 @@ public class StudentDto {
     }
 
 
-    //==========
-    // Setters
-    //==========
     public void setId(Long id) {
         this.id = id;
     }
@@ -71,10 +63,7 @@ public class StudentDto {
         this.email = email;
     }
 
- 
-    //==========
-    // Getters
-    //==========
+
     public Long getId() {
         return id;
     }
@@ -91,10 +80,7 @@ public class StudentDto {
         return email;
     }
 
-    
-    //==========
-    // Methods
-    //==========
+
     @Override
     public String toString() {
         return 

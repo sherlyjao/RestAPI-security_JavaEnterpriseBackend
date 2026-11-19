@@ -19,23 +19,15 @@ import com.spring.spring_rest_security.repository.AuthUserRepository;
  */
 @Service 
 public class CustomUserDetailsService implements UserDetailsService {
-    //==========
-    // Fields
-    //==========
+
     private final AuthUserRepository authUserRepo;
 
 
-    //==========
-    // Constructor
-    //==========
     public CustomUserDetailsService(AuthUserRepository authUserRepo) {
         this.authUserRepo = authUserRepo;
     }
 
 
-    //==========
-    // Methods
-    //==========
     public UserDetails loadUserByUsername(String theUsername) {
         Auth_User user = authUserRepo
             .findByUsername(theUsername)
@@ -53,9 +45,11 @@ public class CustomUserDetailsService implements UserDetailsService {
     }
 
     /**
-     * 
-     * @param roles
-     * @return
+     * Maps a list of user roles to a collection of Spring Security granted
+     * authorities.
+     *
+     * @param roles the list of {@link Auth_Role} entities assigned to the user
+     * @return a collection of objects representing roles
      */
     private Collection<GrantedAuthority> mapRolestoAuthorities(
         List<Auth_Role> roles

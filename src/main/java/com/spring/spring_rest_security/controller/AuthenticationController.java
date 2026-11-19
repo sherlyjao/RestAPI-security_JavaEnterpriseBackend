@@ -24,23 +24,19 @@ import com.spring.spring_rest_security.repository.AuthUserRepository;
 import jakarta.validation.Valid;
 
 /**
- * AuthenticationController
+ * REST controller handling authentication, user registration, and role
+ * management endpoints under the {@code /api/auth} base path.
  */
 @RestController 
 @RequestMapping ("/api/auth")
 public class AuthenticationController {
-    //==========
-    // Fields
-    //==========
+
     private AuthenticationManager authenticationManager;
     private AuthUserRepository authUserRepo;
     private AuthRoleRepository authRoleRepo;
     private BCryptPasswordEncoder passwordEncoder;
 
 
-    //==========
-    // Constructor
-    //==========
     public AuthenticationController(
         AuthenticationManager authenticationManager, 
         AuthUserRepository authUserRepo,
@@ -54,10 +50,13 @@ public class AuthenticationController {
         this.passwordEncoder = passwordEncoder;
     }
 
-
-    //==========
-    // Methods
-    //==========
+    /**
+     * Registers a new authorization role in the system if it does not already
+     * exist.
+     *
+     * @param authRoleRegisterDto the DTO  the name of the role to register
+     * @return a {@link ResponseEntity} containing message and status
+     */
     @PostMapping ("/register_authorized_role")
     public ResponseEntity<String> register_authRole(
         @RequestBody AuthRoleRegisterDto authRoleRegisterDto
@@ -84,6 +83,12 @@ public class AuthenticationController {
         );
     }
 
+    /**
+     * Registers a new user account and assigns the default USER role.
+     * 
+     * @param authUserRegisterDto the DTO containing user registration details
+     * @return a {@link ResponseEntity} containing message and status
+     */
     @PostMapping ("/register_authorized_user")
     public ResponseEntity<String> register_authUser(
         @Valid @RequestBody AuthUserRegisterDto authUserRegisterDto
@@ -122,6 +127,12 @@ public class AuthenticationController {
         );
     }
 
+    /**
+     * Authenticates a user and sets the security context authentication.
+     * 
+     * @param authLoginDto the DTO containing user login credentials
+     * @return a {@link ResponseEntity} containing message and status
+     */
     @PostMapping ("/auth_login")
     public ResponseEntity<String> login(
         @RequestBody AuthLoginDto authLoginDto

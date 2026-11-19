@@ -5,17 +5,12 @@ package com.spring.spring_rest_security.entity;
  * when an exception occurs in the REST API.
  */
 public class StudentErrorResponse {
-    //==========
-    // Fields
-    //==========
+
     private int status;
     private String message;
     private Long timeStamp;
 
 
-    //==========
-    // Constructors
-    //==========
     public StudentErrorResponse() {
     }
 
@@ -26,9 +21,6 @@ public class StudentErrorResponse {
     }
 
 
-    //==========
-    // Setters
-    //==========
     public void setStatus(int status) {
         this.status = status;
     }
@@ -42,9 +34,6 @@ public class StudentErrorResponse {
     }
 
 
-    //==========
-    // Getters
-    //==========
     public int getStatus() {
         return status;
     }
@@ -57,10 +46,7 @@ public class StudentErrorResponse {
         return timeStamp;
     }
 
-    
-    //==========
-    // Methods
-    //==========
+
     @Override
     public String toString() {
         return 

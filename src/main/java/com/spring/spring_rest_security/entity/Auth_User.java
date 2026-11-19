@@ -17,9 +17,7 @@ import jakarta.persistence.ManyToMany;
  */
 @Entity 
 public class Auth_User {
-    //==========
-    // Fields
-    //==========
+
     @Id 
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long id;
@@ -45,9 +43,6 @@ public class Auth_User {
     private List<Auth_Role> roles = new ArrayList<>();
 
 
-    //==========
-    // Constructors
-    //==========
     public Auth_User() {
     }
 
@@ -65,9 +60,6 @@ public class Auth_User {
     }
 
 
-    //==========
-    // Setters
-    //==========
     public void setId(Long id) {
         this.id = id;
     }
@@ -85,9 +77,6 @@ public class Auth_User {
     }
 
 
-    //==========
-    // Getters
-    //==========
     public Long getId() {
         return id;
     }
@@ -105,9 +94,6 @@ public class Auth_User {
     }
 
 
-    //==========
-    // Methods
-    //==========
     @Override
     public String toString() {
         return 

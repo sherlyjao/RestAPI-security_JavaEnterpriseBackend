@@ -18,31 +18,23 @@ import com.spring.spring_rest_security.service.CustomUserDetailsService;
 @EnableWebSecurity 
 @Configuration 
 public class SecurityConfig {
-    //==========
-    // Fields
-    //==========
+
     private CustomUserDetailsService userDetailsService;
     
-    
-    //==========
-    // Constructor
-    //==========
+
     public SecurityConfig(CustomUserDetailsService userDetailsService) {
         this.userDetailsService = userDetailsService;
     }
     
-    
-    //==========
-    // Setters
-    //==========
-    public void setUserDetailsService(CustomUserDetailsService userDetailsService) {
+
+    public void setUserDetailsService(
+        CustomUserDetailsService userDetailsService
+    ) {
+        
         this.userDetailsService = userDetailsService;
     }
     
-    
-    //==========
-    // Getters
-    //==========
+
     public CustomUserDetailsService getUserDetailsService() {
         return userDetailsService;
     }
